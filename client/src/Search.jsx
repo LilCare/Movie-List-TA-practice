@@ -3,7 +3,7 @@ import React from 'react';
 class Search extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {query: 'Search...'};
+    this.state = {query: ''};
   }
 
   handleChange(event) {
@@ -11,8 +11,9 @@ class Search extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A movie was searched: ' + this.state.query);
     event.preventDefault();
+    this.setState({value: ''});
+    alert('A movie was searched: ' + this.state.query);
     //
   }
 
@@ -20,7 +21,7 @@ class Search extends React.Component {
     return (
       <form onSubmit={this.handleSubmit.bind(this)}>
         <label>
-          <input type="text" value={this.state.query} onChange={this.handleChange.bind(this)} />
+          <input type="text" placeholder="Search..." value={this.state.query} onChange={this.handleChange.bind(this)} />
         </label>
         <input type="submit" value="Go!" />
       </form>

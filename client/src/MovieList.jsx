@@ -1,13 +1,12 @@
 import React from 'react';
+import Movie from './Movie.jsx';
 
 var MovieList = ({movies}) => (
-  <div>
-    <ul>
-      {movies.map(movie => 
-        <li key={movie.title}>{movie.title}</li> 
-      )}
-    </ul>
-  </div>
+  <section>
+    {movies.map(movie => 
+      <Movie key={movie.title} movie={movie} /> 
+    )}
+  </section>
 )
 
 export default MovieList;

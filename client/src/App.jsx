@@ -1,18 +1,21 @@
 import React from 'react';
 import MovieList from './MovieList';
 import Search from './Search';
+import Form from './Form';
 import exampleMovies from '../data/exampleMovieList.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: exampleMovies
+      movies: []
     };
+    this.handleSearch = this.handleSearch.bind(this);
+    this.movieAdder = this.movieAdder.bind(this);
     //set initial state with an empty movieList
   }
   
-  componentDidMount () {
+  componentDidMount() {
     //call the handle search with the '*' query to get the full movieList
     //callback: setState with the full list
   }
@@ -23,6 +26,12 @@ class App extends React.Component {
     //invoke callback
   }
 
+  movieAdder(movie) {
+    var movieList = this.state.movies.slice(0);
+    movieList.push({title: movie, watched: false});
+    this.setState({movies: movieList});
+  }
+
   render() {
     return (
       <div>
@@ -30,7 +39,8 @@ class App extends React.Component {
         <h1>Movie List</h1>
         </header>
         <nav>
-          <Search handleSearch={this.handleSearch.bind(this)} />
+          <Form movieAdder={this.movieAdder} />
+          <Search handleSearch={this.handleSearch} />
         </nav>
         <MovieList movies={this.state.movies} />
       </div>
