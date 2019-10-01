@@ -13,6 +13,7 @@ class Search extends React.Component {
   handleSubmit(event) {
     alert('A movie was searched: ' + this.state.query);
     event.preventDefault();
+    //
   }
 
   render() {

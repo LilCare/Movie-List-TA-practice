@@ -1,12 +1,14 @@
 import React from 'react';
 import MovieList from './MovieList';
 import Search from './Search';
-import exampleMovies from '../data/exampleMovieList.js'
+import exampleMovies from '../data/exampleMovieList.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {movies: exampleMovies}
+    this.state = {
+      movies: exampleMovies
+    };
     //set initial state with an empty movieList
   }
   
