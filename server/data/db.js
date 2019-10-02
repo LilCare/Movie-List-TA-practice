@@ -9,4 +9,4 @@ let db = mysql.createConnection({
 
 Promise.promisifyAll(db);
 
-module.exports.db = db;
+module.exports = db;

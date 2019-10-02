@@ -7,6 +7,7 @@ class Search extends React.Component {
   }
 
   handleChange(event) {
+    console.log(event.target)
     this.setState({query: event.target.value});
   }
 
