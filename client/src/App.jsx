@@ -3,6 +3,7 @@ import MovieList from './MovieList';
 import Search from './Search';
 import Form from './Form';
 import exampleMovies from '../data/exampleMovieList.js';
+import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,6 +19,9 @@ class App extends React.Component {
   componentDidMount() {
     //call the handle search with the '*' query to get the full movieList
     //callback: setState with the full list
+    axios.get('movieList/')
+      .then(results => {console.log(results); this.setState({movies: results.data}); })
+      .catch(err => {console.log(err)});
   }
 
   handleSearch(query, cb) {
