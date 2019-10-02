@@ -18,6 +18,12 @@ app.get('/movieList', (req, res) => {
   router.getAllDbMovies(req, res);
 });
 
+// add movies to the dataBase
+app.post('/movieList', (req, res) => {
+  console.log('this is the req body: ', req.body);
+  router.addMovieToDb(req, res);
+});
+
 // start server
 app.listen(PORT, () => console.log('Express server started on', PORT));
 
