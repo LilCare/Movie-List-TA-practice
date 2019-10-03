@@ -7,15 +7,14 @@ class Search extends React.Component {
   }
 
   handleChange(event) {
-    console.log(event.target)
     this.setState({query: event.target.value});
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({value: ''});
-    alert('A movie was searched: ' + this.state.query);
-    //
+    this.props.handleSearch(this.state.query);
+    this.setState({query: ''});
+    //alert('A movie was searched: ' + this.state.query);
   }
 
   render() {

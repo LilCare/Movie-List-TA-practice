@@ -10,5 +10,5 @@ CREATE TABLE movieList (
   watched TINYINT NOT NULL DEFAULT 0
 );
 
-INSERT INTO movieList(title, watched)
+INSERT INTO movieList(title)
 VALUES ('Mean Girls'), ('Hackers'), ('The Grey'), ('Sunshine'), ('Ex Machina');
