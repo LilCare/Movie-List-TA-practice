@@ -10,7 +10,7 @@ module.exports = {
   },
   addMovieToDb: (req, res) => {
     var columns = '(title)';
-    //console.log(req.body);
+    console.log(req.body);
     // db.queryAsync('SELECT * from movieList where title != ${req.body}')
     //  .then(db.queryAsync(`INSERT INTO movieList ${columns} VALUES ${req.body}`))
     //  .then(data => { console.log(data); res.status(201).send(); })
