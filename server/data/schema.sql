@@ -7,7 +7,8 @@ USE movieList;
 CREATE TABLE movieList (
   id INT PRIMARY KEY AUTO_INCREMENT,
   title VARCHAR(20),
-  watched TINYINT NOT NULL DEFAULT 0
+  watched TINYINT NOT NULL DEFAULT 0,
+  UNIQUE KEY (title)
 );
 
 INSERT INTO movieList(title)

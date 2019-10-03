@@ -1,6 +1,7 @@
 const express = require('express');
+const mysql = require('mysql');
 const db = require('../data/db.js');
-var router = express.Router();
+//var router = express.Router();
 
 module.exports = {
   getAllDbMovies: (req, res) => {
@@ -10,11 +11,13 @@ module.exports = {
   },
   addMovieToDb: (req, res) => {
     var columns = '(title)';
-    console.log(req.body);
-    // db.queryAsync('SELECT * from movieList where title != ${req.body}')
-    //  .then(db.queryAsync(`INSERT INTO movieList ${columns} VALUES ${req.body}`))
-    //  .then(data => { console.log(data); res.status(201).send(); })
-    //  .catch(data => {res.status(405).send('Movie already exists in database')})
-    res.send()
+    var movieTitle = req.body.title;
+    var tableValue = [movieTitle];
+    console.log('this is req body ', req.body);
+    //db.queryAsync(`SELECT * from movieList where title = "${movieTitle}"`)
+    db.queryAsync(`INSERT INTO movieList ${columns} VALUES ("${movieTitle}")`)
+     .then(insertedData => { return db.queryAsync('SELECT * from movieList'); })
+     .then(allData => { res.status(201).send(allData); })
+     .catch(err => { console.log('this is err ', err); res.status(405).send('Movie already exists in database'); });
   }
 }

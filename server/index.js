@@ -1,13 +1,17 @@
 // import express framework
 const express = require('express');
 const path = require('path');
-var router = require('./controllers')
+const router = require('./controllers');
+const bodyParser = require('body-parser');
 
 // Set PORT# to listen on
 const PORT = 3000;
 
 // create server
 const app = express();
+
+// create application/json parser
+var jsonParser = bodyParser.json()
 
 
 // serve static files
@@ -19,8 +23,8 @@ app.get('/movieList', (req, res) => {
 });
 
 // add movies to the dataBase
-app.post('/movieList', (req, res) => {
-  console.log('this is the req body: ', req.body);
+app.post('/movieList', jsonParser, (req, res) => { 
+  // this is the request header content type:  application/json;charset=UTF-8
   router.addMovieToDb(req, res);
 });
 

@@ -43,7 +43,7 @@ class App extends React.Component {
   movieAdder(movie) {
     //let movieList = this.state.movies.slice(0);
     axios.post('/movieList', {title: movie})
-      .then(results => { this.setState({movies: results.data, moviesToMount: results.data}); })
+      .then(results => ( this.setState({movies: results.data, moviesToMount: results.data}) ))
       .then(() => console.log('State after getting movieList from db', this.state))
       .catch(err => { console.log(err) });
     // movieList.push({title: movie, watched: false});
