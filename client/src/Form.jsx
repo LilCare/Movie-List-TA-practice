@@ -20,7 +20,7 @@ class Form extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} class="nav" >
         <label>
           <input type="text" placeholder="Add movie title here..." value={this.state.value} onChange={this.handleChange} />
         </label>

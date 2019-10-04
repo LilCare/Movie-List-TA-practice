@@ -52,9 +52,10 @@ class App extends React.Component {
   }
 
   toggleWatch(movie) {
+    console.log("this is the movie to toggle", movie);
     let movieList = this.state.movies;
-    let movieToggleId = movie.movie.id - 1;
-    movieList[movieToggleId].watched = 1;
+    let movieToggleInd = movie.movie.id - 1;
+    movieList[movieToggleInd].watched = 1;
     this.setState({movies: movieList});
   }
 

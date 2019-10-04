@@ -6,14 +6,12 @@ const db = require('../data/db.js');
 module.exports = {
   getAllDbMovies: (req, res) => {
     db.queryAsync('SELECT * from movieList')
-      .then(data => { console.log(data); res.status(200).send(data); }) //
+      .then(data => { res.status(200).send(data) }) //
       .catch(err => {res.status(404).send('No movies found')});
   },
   addMovieToDb: (req, res) => {
     var columns = '(title)';
     var movieTitle = req.body.title;
-    var tableValue = [movieTitle];
-    console.log('this is req body ', req.body);
     //db.queryAsync(`SELECT * from movieList where title = "${movieTitle}"`)
     db.queryAsync(`INSERT INTO movieList ${columns} VALUES ("${movieTitle}")`)
      .then(insertedData => { return db.queryAsync('SELECT * from movieList'); })

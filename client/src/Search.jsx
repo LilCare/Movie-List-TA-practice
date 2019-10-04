@@ -19,7 +19,7 @@ class Search extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit.bind(this)}>
+      <form onSubmit={this.handleSubmit.bind(this)} class="nav" >
         <label>
           <input type="text" placeholder="Search..." value={this.state.query} onChange={this.handleChange.bind(this)} />
         </label>
