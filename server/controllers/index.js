@@ -26,7 +26,7 @@ module.exports = {
       })
       .then(data => (db.queryAsync('SELECT * from movieList')))
       .then(allData => (res.status(201).send(allData)))
-      .catch(err => console.log(err));
+      .catch(err => (res.status(400).send(err)));
   }
 }
 
