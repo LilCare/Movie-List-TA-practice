@@ -4,6 +4,8 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {query: ''};
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(event) {
@@ -19,11 +21,11 @@ class Search extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit.bind(this)} class="nav" >
+      <form onSubmit={this.handleSubmit} class="nav" >
         <label>
-          <input type="text" placeholder="Search..." value={this.state.query} onChange={this.handleChange.bind(this)} />
+          <input type="text" class="textbox" placeholder="Search..." value={this.state.query} onChange={this.handleChange} />
         </label>
-        <input type="submit" value="Go!" />
+        <input type="submit" class="submit" value="Go!" />
       </form>
     );
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import MovieList from './MovieList';
 import Search from './Search';
 import Form from './Form';
+import ToggleButtons from './ToggleButtons';
 import exampleMovies from '../data/exampleMovieList.js';
 import axios from 'axios';
 
@@ -15,7 +16,8 @@ class App extends React.Component {
     this.mountAll = this.handleSearch.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.movieAdder = this.movieAdder.bind(this);
-    this.toggleWatch =this.toggleWatch.bind(this);
+    this.toggleWatch = this.toggleWatch.bind(this);
+    this.toggleList = this.toggleList.bind(this);
   }
   
   componentDidMount() {
@@ -59,6 +61,18 @@ class App extends React.Component {
     this.setState({movies: movieList});
   }
 
+  toggleList(watchedBool) {
+    //event.target.value = 0 for movies to watch, 1 for watched movies
+    let movieList = this.state.movies;
+    let toggleMatches = [];
+    for (var i = 0; i < movieList.length; i++) {
+      //need to compare as strings
+      if (movieList[i].watched.toString() === watchedBool) {
+        toggleMatches.push(movieList[i]);
+      }
+    this.setState({moviesToMount: toggleMatches});
+  }
+
   render() {
     return (
       <div>
@@ -68,9 +82,18 @@ class App extends React.Component {
         <nav>
           <Form movieAdder={this.movieAdder} />
           <Search handleSearch={this.handleSearch} />
+          <ToggleButtons toggleList={this.toggleList} />
         </nav>
-        <MovieList movies={this.state.moviesToMount} toggleWatch={this.toggleWatch} />
-        <footer><button onClick={this.componentDidMount.bind(this)}>Show All Movies</button></footer>
+        <MovieList 
+          movies={this.state.moviesToMount} 
+          toggleWatch={this.toggleWatch} 
+        />
+        <footer>
+          <button 
+            class="showAll" 
+            onClick={this.componentDidMount.bind(this)} 
+          >Show All Movies</button>
+        </footer>
       </div>
     );
   }

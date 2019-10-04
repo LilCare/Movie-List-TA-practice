@@ -12,8 +12,8 @@ var Movie = ({movie, toggleWatch}) => {
       <div class="title">
         {movie.title}
       </div>
-      <div class="watched">
-        <button onClick={clickHandler}>watched</button>
+      <div >
+        <button class="watched" onClick={clickHandler}>To Watch</button>
       </div>
     </div>
   );

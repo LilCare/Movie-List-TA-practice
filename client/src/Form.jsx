@@ -22,9 +22,9 @@ class Form extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} class="nav" >
         <label>
-          <input type="text" placeholder="Add movie title here..." value={this.state.value} onChange={this.handleChange} />
+          <input type="text" class="textbox" placeholder="Add movie title here..." value={this.state.value} onChange={this.handleChange} />
         </label>
-          <input type="submit" value="Add!" />
+          <input type="submit" class="submit" value="Add!" />
       </form>
     );
   };

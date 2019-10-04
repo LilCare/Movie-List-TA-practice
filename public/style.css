@@ -10,12 +10,13 @@ body {
     margin: 30px, 90px;
 }
 
-.nav {
-    font-size: 15px;
-    margin: 151empx;
-    border-radius: 15px;
-    padding: .75em;
+.textbox {
+    font-size: 20px;
+    margin: 15px;
+    padding: .3em;
+    width: 300px;
 }
+
 
 h1 {
     color: aquamarine;
@@ -31,6 +32,39 @@ h1 {
     grid-template-columns: 5fr 1fr;
 }
 .title {
-    background-color: blanchedalmond;
+    background-color: white;
     color: black;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.submit {
+    font-size: 20px;
+    margin: 15px;
+    padding: .3em;
+    width: 60px;
+    border-radius: 15px;
+    background-color: aquamarine;
+}
+
+.watched {
+    background-color: aquamarine;
+    color: black;
+    font-size: 18px;
+    margin: 151empx;
+    border-radius: 15px;
+    padding: .3em;
+}
+.towatch {
+    background-color: lightgrey;
+    margin-left: 50px;
+}
+
+.showAll {
+    font-size: 20px;
+    margin: 15px;
+    padding: .3em;
+    width: 225px;
+    border-radius: 15px;
+    background-color: aquamarine;
 }
