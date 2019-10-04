@@ -24,9 +24,9 @@ class App extends React.Component {
     //call the handle search with the '*' query to get the full movieList
     //callback: setState with the full list
     axios.get('/movieList')
-      .then(results => { this.setState({movies: results.data, moviesToMount: results.data}); })
+      .then(results => this.setState({movies: results.data, moviesToMount: results.data}))
       .then(() => console.log('State after getting movieList from db', this.state))
-      .catch(err => { console.log(err) });
+      .catch(err => console.log(err));
   }
 
   handleSearch(query) {
@@ -39,15 +39,15 @@ class App extends React.Component {
       }
       return posQuery;
     }, []);
-    this.setState({moviesToMount: filtered})
+    this.setState({moviesToMount: filtered});
   }
 
   movieAdder(movie) {
     //let movieList = this.state.movies.slice(0);
     axios.post('/movieList', {title: movie})
-      .then(results => ( this.setState({movies: results.data, moviesToMount: results.data}) ))
+      .then(results => this.setState({movies: results.data, moviesToMount: results.data}))
       .then(() => console.log('State after getting movieList from db', this.state))
-      .catch(err => { console.log(err) });
+      .catch(err => console.log(err));
     // movieList.push({title: movie, watched: false});
     // console.log(movieList);
     // this.setState({movies: movieList, moviesToMount: movieList});
@@ -71,6 +71,7 @@ class App extends React.Component {
         toggleMatches.push(movieList[i]);
       }
     this.setState({moviesToMount: toggleMatches});
+    }
   }
 
   render() {
@@ -89,14 +90,14 @@ class App extends React.Component {
           toggleWatch={this.toggleWatch} 
         />
         <footer>
-          <button 
-            class="showAll" 
+          <button class="showAll" 
             onClick={this.componentDidMount.bind(this)} 
           >Show All Movies</button>
         </footer>
       </div>
     );
   }
- };
+}
+
 
  export default App;

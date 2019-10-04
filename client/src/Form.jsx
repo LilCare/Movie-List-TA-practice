@@ -27,7 +27,7 @@ class Form extends React.Component {
           <input type="submit" class="submit" value="Add!" />
       </form>
     );
-  };
+  }
 }
 
 export default Form;
