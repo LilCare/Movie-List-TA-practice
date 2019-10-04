@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // query the dataBase 
 app.get('/movieList', (req, res) => {
-  router.getAllDbMovies(req, res);
+  router.getAllDbMovies(req, res)
 });
 
 // add movies to the dataBase
@@ -27,6 +27,12 @@ app.post('/movieList', jsonParser, (req, res) => {
   // this is the request header content type:  application/json;charset=UTF-8
   router.addMovieToDb(req, res);
 });
+
+// update the database with watched films
+app.post('/updateWatched', jsonParser, (req, res) => {
+  console.log('This is request body', req.body);
+  router.updateWatched(req, res);
+})
 
 // start server
 app.listen(PORT, () => console.log('Express server started on', PORT));
