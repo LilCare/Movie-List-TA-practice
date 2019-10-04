@@ -30,7 +30,6 @@ app.post('/movieList', jsonParser, (req, res) => {
 
 // update the database with watched films
 app.post('/updateWatched', jsonParser, (req, res) => {
-  console.log('This is request body', req.body);
   router.updateWatched(req, res);
 })
 
