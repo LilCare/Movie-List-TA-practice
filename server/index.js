@@ -18,18 +18,19 @@ var jsonParser = bodyParser.json()
 app.use(express.static(path.join(__dirname, '../public')));
 
 // query the dataBase 
-app.get('/movieList', (req, res) => {
-  router.getAllDbMovies(req, res)
+app.get('/movieList', (req, res, next) => {
+  router.getAllDbMovies(req, res);
 });
 
 // add movies to the dataBase
-app.post('/movieList', jsonParser, (req, res) => { 
+app.post('/movieList', jsonParser, (req, res, next) => { 
   // this is the request header content type:  application/json;charset=UTF-8
   router.addMovieToDb(req, res);
 });
 
 // update the database with watched films
 app.post('/updateWatched', jsonParser, (req, res) => {
+  console.log('recieved post to /updateWatched', req.body);
   router.updateWatched(req, res);
 })
 

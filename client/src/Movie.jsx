@@ -7,6 +7,8 @@ var Movie = ({movie, toggleWatch}) => {
     {toggleWatch({movie})};
   }
 
+  //Conditional: If movie.watched is false, render To Watch Button, else Watched
+
   return (
     <div class="movie">
       <div class="title">

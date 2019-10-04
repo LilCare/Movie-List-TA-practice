@@ -54,11 +54,12 @@ class App extends React.Component {
   }
 
   toggleWatch(movie) {
+    movie = movie.movie;
     console.log("this is the movie to toggle", movie);
-    let movieList = this.state.movies;
-    let movieToggleInd = movie.movie.id - 1;
-    movieList[movieToggleInd].watched = 1;
-    this.setState({movies: movieList});
+    axios.post('/updateWatched', movie)
+      .then(results => this.setState({movies: results.data, moviesToMount: results.data}))
+      .then(() => console.log('State after getting movieList from db', this.state))
+      .catch(err => console.log(err));
   }
 
   toggleList(watchedBool) {
